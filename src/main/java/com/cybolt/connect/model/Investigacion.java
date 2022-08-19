@@ -3,11 +3,14 @@ package com.cybolt.connect.model;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
@@ -25,8 +28,9 @@ public class Investigacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_investigacion;
 	
-	//Llave foranea a colocar
-	private int identificador;
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinColumn(name = "persona", referencedColumnName = "identificador", nullable = false)
+	private Persona persona;
 	
 	
 	@NotNull
@@ -48,51 +52,62 @@ public class Investigacion implements Serializable {
 	public Investigacion() {
 		
 	}
-	public Investigacion(int id_investigacion, String tipo_de_delito, String descripcion,
-			String direccion, String estatus) {
+	
+	
+	public Investigacion(Integer id_investigacion, Persona persona, String tipodelito, String descripcion, String direccion,
+			String estatus) {
 		
-		this.id_investigacion=id_investigacion;
-		this.tipodelito=tipodelito;
-		this.descripcion=descripcion;
-		this.direccion=direccion;
-		this.estatus=estatus;
+		this.id_investigacion = id_investigacion;
+		this.persona = persona;
+		this.tipodelito = tipodelito;
+		this.descripcion = descripcion;
+		this.direccion = direccion;
+		this.estatus = estatus;
+	}
+
+
+	public Investigacion(Integer id_investigacion) {
+		
+		this.id_investigacion = id_investigacion;
+	}
+
+
+	public int getId_investigacion() {
+		return id_investigacion;
+	}
+	public void setId_investigacion(Integer id_investigacion) {
+		this.id_investigacion = id_investigacion;
+	}
+	public Persona getPersona() {
+		return persona;
+	}
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+	public String getTipodelito() {
+		return tipodelito;
+	}
+	public void setTipodelito(String tipodelito) {
+		this.tipodelito = tipodelito;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	public String getEstatus() {
+		return estatus;
+	}
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
 	}
 	
-		public int getIdinvestigacion() {
-			return id_investigacion;
-		}
-		public void setIdinvestigacion(int id_investigacion) {
-			this.id_investigacion=id_investigacion;
-		}
-		public int getIdentificador() {
-			return identificador;
-		}
-		public void setIdentificador(int identificador) {
-			this.identificador=identificador;
-		}
-		public String getTipodelito() {
-			return tipodelito;
-		}
-		public void setTipodelito(String tipodelito) {
-			this.tipodelito=tipodelito;
-		}
-		public String getDescripcion() {
-			return descripcion;
-		}
-		public void setDescripcion(String descripcion) {
-			this.descripcion=descripcion;
-		}
-		public String getDireccion() {
-			return direccion;
-		}
-		public void setDireccion(String direccion) {
-			this.direccion=direccion;
-		}
-		public String getEstatus() {
-			return estatus;
-		}
-		public void setEstatus(String estatus) {
-			this.estatus=estatus;
-		}
-
+		
 }

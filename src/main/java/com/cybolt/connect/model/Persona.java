@@ -1,5 +1,7 @@
 package com.cybolt.connect.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 @Table(name ="personas")
-public class Persona {
+public class Persona implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -45,51 +47,70 @@ public class Persona {
 	public Persona() {
 		
 	}
-	public Persona(int identificador, String nombre, String apellidop, 
-			String apellidom, String direccion, String municipio) {
+
+	public Persona(Integer identificador, String nombre, String apellidop, String apellidom, String direccion,
+			String municipio) {
 		
-		this.identificador=identificador;
-		this.nombre=nombre;
-		this.apellidop=apellidop;
-		this.apellidom=apellidom;
-		this.direccion=direccion;
-		this.municipio=municipio;
-		
+		this.identificador = identificador;
+		this.nombre = nombre;
+		this.apellidop = apellidop;
+		this.apellidom = apellidom;
+		this.direccion = direccion;
+		this.municipio = municipio;
 	}
-	  	public int getIdentificador(){
-	  		return identificador;
-	    }
-	    public void setIdentificador(int identificador){
-	        this.identificador= identificador;
-	    }
-	    public String getNombre(){
-	        return nombre;
-	    }
-	    public void setNombre(String nombre){
-	        this.nombre =nombre;
-	    }
-	    public String getApellidop() {
-	    	return apellidop;
-	    }
-	    public void setApellidop(String apellidop) {
-	    	this.apellidop=apellidop;
-	    }
-	    public String getApellidom() {
-	    	return apellidom;
-	    }
-	    public void setApellidom(String apellidom) {
-	    	this.apellidom=apellidom;
-	    }
-	    public String getDireccion() {
-	    	return direccion;
-	    }
-	    public void setDireccion(String direccion) {
-	    	this.direccion=direccion;
-	    }
-	    public String getMunicipio() {
-	    	return municipio;
-	    }
-	    public void setMunicipio(String municipio) {
-	    	this.municipio=municipio;
-	    }
+
+	public Persona(Integer identificador) {
+		
+		this.identificador = identificador;
+	}
+
+	public int getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(Integer identificador) {
+		this.identificador = identificador;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidop() {
+		return apellidop;
+	}
+
+	public void setApellidop(String apellidop) {
+		this.apellidop = apellidop;
+	}
+
+	public String getApellidom() {
+		return apellidom;
+	}
+
+	public void setApellidom(String apellidom) {
+		this.apellidom = apellidom;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
+	}
+	
+
 }

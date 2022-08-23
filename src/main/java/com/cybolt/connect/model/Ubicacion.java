@@ -27,7 +27,7 @@ public class Ubicacion implements Serializable {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private int id_ubicacion;
 	 
-	 @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	 @ManyToOne(cascade = { CascadeType.MERGE })
 	 @JoinColumn(name = "investigacion", referencedColumnName = "id_investigacion", nullable = false)
 	 private Investigacion investigacion;
 	 

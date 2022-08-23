@@ -28,11 +28,6 @@ public class Investigacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_investigacion;
 	
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinColumn(name = "persona", referencedColumnName = "identificador", nullable = false)
-	private Persona persona;
-	
-	
 	@NotNull
 	@Column(name ="tipo_de_delito")
 	private String tipodelito;
@@ -49,8 +44,13 @@ public class Investigacion implements Serializable {
 	@Column(name="estatus")
 	private String estatus;
 	
+	@ManyToOne(cascade = {CascadeType.MERGE })
+	@JoinColumn(name = "persona", referencedColumnName = "identificador", nullable = false)
+	private Persona persona;
+	
+	
 	public Investigacion() {
-		
+		this.persona= new Persona();
 	}
 	
 	

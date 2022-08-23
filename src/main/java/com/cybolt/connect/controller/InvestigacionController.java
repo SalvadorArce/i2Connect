@@ -15,43 +15,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cybolt.connect.model.Persona;
-import com.cybolt.connect.service.PersonaService;
-
+import com.cybolt.connect.model.Investigacion;
+import com.cybolt.connect.service.InvestigacionService;
 
 @RestController
-@RequestMapping(value = "/api/persona", produces = { MediaType.APPLICATION_JSON_VALUE })
-public class PersonaController {
+@RequestMapping(value = "/api/investigacion", produces = { MediaType.APPLICATION_JSON_VALUE })
+public class InvestigacionController {
+
 	
 	@Autowired
-	private PersonaService personaService;
+	private InvestigacionService investigacionService;
 
-	@GetMapping(value = "/findAllPersonas")
-	public ResponseEntity<Object> findAllPersonas() {
-		return new ResponseEntity<Object>(personaService.findAllPersona(), HttpStatus.OK);
+	@GetMapping(value = "/findAllInvestigacions")
+	public ResponseEntity<Object> findAllInvestigacions() {
+		return new ResponseEntity<Object>(investigacionService.findAllInvestigacion(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/findById/{id}")
 	public ResponseEntity<Object> findById(@PathVariable Integer id) {
-		return new ResponseEntity<Object>(personaService.findById(id), HttpStatus.OK);
+		return new ResponseEntity<Object>(investigacionService.findById(id), HttpStatus.OK);
 	}
 
-	@PostMapping("/savePersona")
+	@PostMapping("/saveInvestigacion")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Persona crear(@RequestBody Persona persona) {
-		return personaService.savePersona(persona);
+	public Investigacion crear(@RequestBody Investigacion investigacion) {
+		return investigacionService.saveInvestigacion(investigacion);
 	}
 
-	@PutMapping("/updatePersona")
+	@PutMapping("/updateInvestigacion")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Persona editar(@RequestBody Persona persona) {
-		return personaService.updatePersona(persona);
+	public Investigacion editar(@RequestBody Investigacion investigacion) {
+		return investigacionService.updateInvestigacion(investigacion);
 	}
 
-	@DeleteMapping("/deletePersona/{id}")
+	@DeleteMapping("/deleteInvestigacion/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void eliminar(@PathVariable Integer id) {
-		personaService.deletePersona(id);
+		investigacionService.deleteInvestigacion(id);
 	}
 
 	

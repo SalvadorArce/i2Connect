@@ -47,6 +47,8 @@ public class Persona implements Serializable {
 	public Persona() {
 		
 	}
+	
+	
 
 	public Persona(Integer identificador, String nombre, String apellidop, String apellidom, String direccion,
 			String municipio) {

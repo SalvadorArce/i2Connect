@@ -10,19 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cybolt.connect.model.Persona;
+import com.cybolt.connect.model.entity.Persona;
 import com.cybolt.connect.service.PersonaService;
-
 
 @RestController
 @RequestMapping(value = "/api/persona", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class PersonaController {
-	
+
 	@Autowired
 	private PersonaService personaService;
 
@@ -53,7 +51,5 @@ public class PersonaController {
 	public void eliminar(@PathVariable Integer id) {
 		personaService.deletePersona(id);
 	}
-
-	
 
 }

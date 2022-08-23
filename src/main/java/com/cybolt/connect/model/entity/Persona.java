@@ -1,4 +1,4 @@
-package com.cybolt.connect.model;
+package com.cybolt.connect.model.entity;
 
 import java.io.Serializable;
 
@@ -13,46 +13,44 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name ="personas")
+@Table(name = "personas")
 public class Persona implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@Column(name="identificador")
-	@Basic(optional=false)
+	@Column(name = "identificador")
+	@Basic(optional = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int identificador;
-	
+
 	@NotNull
-	@Column(name ="nombre")
+	@Column(name = "nombre")
 	private String nombre;
-	
+
 	@NotNull
-	@Column(name="apellido_paterno")
+	@Column(name = "apellido_paterno")
 	private String apellidop;
-	
+
 	@NotNull
-	@Column(name="apellido_materno")
+	@Column(name = "apellido_materno")
 	private String apellidom;
-	
+
 	@NotNull
-	@Column(name="direccion")
+	@Column(name = "direccion")
 	private String direccion;
-	
+
 	@NotNull
-	@Column(name="municipio")
+	@Column(name = "municipio")
 	private String municipio;
-	
+
 	public Persona() {
-		
+
 	}
-	
-	
 
 	public Persona(Integer identificador, String nombre, String apellidop, String apellidom, String direccion,
 			String municipio) {
-		
+
 		this.identificador = identificador;
 		this.nombre = nombre;
 		this.apellidop = apellidop;
@@ -62,7 +60,7 @@ public class Persona implements Serializable {
 	}
 
 	public Persona(Integer identificador) {
-		
+
 		this.identificador = identificador;
 	}
 
@@ -113,6 +111,5 @@ public class Persona implements Serializable {
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
-	
 
 }

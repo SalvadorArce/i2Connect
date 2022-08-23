@@ -10,19 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cybolt.connect.model.Investigacion;
+import com.cybolt.connect.model.entity.Investigacion;
 import com.cybolt.connect.service.InvestigacionService;
 
 @RestController
 @RequestMapping(value = "/api/investigacion", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class InvestigacionController {
 
-	
 	@Autowired
 	private InvestigacionService investigacionService;
 
@@ -53,7 +51,5 @@ public class InvestigacionController {
 	public void eliminar(@PathVariable Integer id) {
 		investigacionService.deleteInvestigacion(id);
 	}
-
-	
 
 }

@@ -1,4 +1,4 @@
-package com.cybolt.connect.model;
+package com.cybolt.connect.model.entity;
 
 import java.io.Serializable;
 
@@ -16,44 +16,44 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="ubicacion")
+@Table(name = "ubicacion")
 public class Ubicacion implements Serializable {
 
-	 private static final long serialVersionUID = 1L;
-	 
-	 @Id
-	 @Column(name="id_ubicacion")
-	 @Basic(optional = false)
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private int id_ubicacion;
-	 
-	 @ManyToOne(cascade = { CascadeType.MERGE })
-	 @JoinColumn(name = "investigacion", referencedColumnName = "id_investigacion", nullable = false)
-	 private Investigacion investigacion;
-	 
-	 @NotNull
-	 @Column(name="latitud")
-	 private String latitud;
-	 
-	 @NotNull
-	 @Column(name="longitud")
-	 private String longitud;
-	 
-	 @NotNull
-	 @Column(name="pais")
-	 private String pais;
-	 
-	 @NotNull
-	 @Column(name="municipio")
-	 private String municipio;
-	 
-	 public Ubicacion() {
-		 
-	 }
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "id_ubicacion")
+	@Basic(optional = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_ubicacion;
+
+	@ManyToOne(cascade = { CascadeType.MERGE })
+	@JoinColumn(name = "investigacion", referencedColumnName = "id_investigacion", nullable = false)
+	private Investigacion investigacion;
+
+	@NotNull
+	@Column(name = "latitud")
+	private String latitud;
+
+	@NotNull
+	@Column(name = "longitud")
+	private String longitud;
+
+	@NotNull
+	@Column(name = "pais")
+	private String pais;
+
+	@NotNull
+	@Column(name = "municipio")
+	private String municipio;
+
+	public Ubicacion() {
+
+	}
 
 	public Ubicacion(Integer id_ubicacion, Investigacion investigacion, String latitud, String longitud, String pais,
 			String municipio) {
-		
+
 		this.id_ubicacion = id_ubicacion;
 		this.investigacion = investigacion;
 		this.latitud = latitud;
@@ -61,9 +61,6 @@ public class Ubicacion implements Serializable {
 		this.pais = pais;
 		this.municipio = municipio;
 	}
-	
-	
-
 
 	public Ubicacion(Integer id_ubicacion) {
 		this.id_ubicacion = id_ubicacion;
@@ -115,6 +112,6 @@ public class Ubicacion implements Serializable {
 
 	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
-	} 
-	 
-   }
+	}
+
+}

@@ -1,0 +1,50 @@
+{
+  "defaultValues": {
+    "timeZoneId": "Europe/London",
+    "resultIdsPersistent": true
+  },
+  "services": [
+    {
+      "id": "nypd-service",
+      "name": "NYPD Connector: Get all",
+      "description": "A service that retrieves all data.",
+      "clientConfigType": "NONE",
+      "acquireUrl": "/api/socrata/all"
+    }
+  ],
+  "clientConfigs": [
+    {
+      "id": "searchForm",
+      "config": {
+        "sections": [
+          {
+            "conditions": [
+              {
+                "id": "searchTerm",
+                "label": "made-up-condition(EG: Complaint Number)",
+                "mandatory": false,
+                "logicalType": "SINGLE_LINE_STRING"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "expandForm",
+      "config": {
+        "sections": [
+          {
+            "conditions": [
+              {
+                "id": "made-up-id",
+                "label": "made-up-condition(EG: Borough)",
+                "logicalType": "SINGLE_LINE_STRING"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
